@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">EX_7</string>
+    <string-array name="taipei_food">
+        <item>牛肉麵</item>
+        <item>義大利麵</item>
+        <item>牛排</item>
+    </string-array>
+    <string-array name="taoyuan_food">
+        <item>豆干</item>
+        <item>客家粄條</item>
+        <item>豆花</item>
+    </string-array>
+    <string-array name="hsinchu_food">
+        <item>米粉</item>
+        <item>貢丸湯</item>
+        <item>悶雞</item>
+    </string-array>
+</resources>
