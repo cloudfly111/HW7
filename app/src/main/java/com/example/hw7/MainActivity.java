@@ -103,24 +103,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         FoodId=item.getItemId();
         setFoodPicture(CountyId);
-//        switch (item.getItemId()){
-//            case R.id.menu_food1:
-//                imageViewFood.setImageResource(R.drawable.ice_cream);
-//                break;
-//            case R.id.menu_food2:
-//                imageViewFood.setImageResource(R.drawable.spaghetti);
-//
-//                break;
-//            case R.id.menu_food3:
-//                imageViewFood.setImageResource(R.drawable.cake);
-//
-//                break;
-//
-//        }
         return super.onContextItemSelected(item);
     }
 
-    public int setFoodPicture(int countyName){
+    public void setFoodPicture(int countyName){
         if(countyName==R.id.taipei){
             switch (FoodId){
                 case R.id.menu_food1:
@@ -145,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
                     imageViewFood.setImageResource(R.drawable.t3);
                     break;
             }
-        }else{
-            switch (FoodId){
+        }else {
+            switch (FoodId) {
                 case R.id.menu_food1:
                     imageViewFood.setImageResource(R.drawable.h1);
                     break;
@@ -158,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-        return 0;
     }
 
 }
