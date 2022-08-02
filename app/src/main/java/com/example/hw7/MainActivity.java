@@ -15,8 +15,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageViewCounty,imageViewFood;
-    private int CountyId,FoodId;
-    private Menu menu;
+    private int CountyId = R.id.taipei;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         imageViewFood=(ImageView) findViewById(R.id.imageView_food);
 
         //Set context menu:
-        registerForContextMenu(imageViewCounty);
+//        registerForContextMenu(imageViewCounty);
         registerForContextMenu(imageViewFood);
 
     }
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         CountyId =item.getItemId();
-        switch (item.getItemId()){
+        switch (CountyId){
             case R.id.taipei:
                 imageViewCounty.setImageResource(R.drawable.taipei);
                 break;
@@ -67,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        if(v.getId()==R.id.imageView_food){
+//        if(v.getId()==R.id.imageView_food){
            getMenuInflater().inflate(R.menu.textview_food,menu);
-            this.menu=menu;
-            updateMenuTitle();
-        }
+//            this.menu=menu;
+            updateMenuTitle(menu);
+//        }
     }
 
-    private void updateMenuTitle(){
+    private void updateMenuTitle(Menu menu){
         MenuItem item = menu.findItem(R.id.menu_food1);
         MenuItem item2 = menu.findItem(R.id.menu_food2);
         MenuItem item3 = menu.findItem(R.id.menu_food3);
@@ -101,14 +101,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        FoodId=item.getItemId();
-        setFoodPicture(CountyId);
+        int FoodId=item.getItemId();
+        setFoodPicture(CountyId,FoodId);
         return super.onContextItemSelected(item);
     }
 
-    public void setFoodPicture(int countyName){
+    public void setFoodPicture(int countyName,int foodName){
         if(countyName==R.id.taipei){
-            switch (FoodId){
+            switch (foodName){
                 case R.id.menu_food1:
                     imageViewFood.setImageResource(R.drawable.tp1);
                     break;
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }else if(countyName==R.id.taoyuan){
-            switch (FoodId){
+            switch (foodName){
                 case R.id.menu_food1:
                     imageViewFood.setImageResource(R.drawable.t1);
                     break;
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }else {
-            switch (FoodId) {
+            switch (foodName) {
                 case R.id.menu_food1:
                     imageViewFood.setImageResource(R.drawable.h1);
                     break;
